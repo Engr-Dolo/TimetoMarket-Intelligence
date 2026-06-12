@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  # ── Node.js: lint + test all workspace packages ─────────────────────────────
+  node:
+    name: "Node — Lint & Test"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint (ESLint + Prettier)
+        run: npm run lint --workspaces --if-present
+
+      - name: Test
+        run: npm test --workspaces --if-present
+
+  # ── Python: lint + test all Python modules ──────────────────────────────────
+  python:
+    name: "Python — Lint & Test"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install linting and test tools
+        run: pip install black ruff pytest
+
+      - name: Install module requirements
+        run: |
+          find . -name requirements.txt -not -path '*/node_modules/*' \
+            -exec pip install -r {} \;
+
+      - name: Lint — ruff
+        run: ruff check .
+
+      - name: Lint — black (format check)
+        run: black --check .
+
+      - name: Test — pytest
+        # Exit code 5 means no tests collected; acceptable at prototype stage.
+        run: |
+          python -m pytest -q --tb=short || ec=$?
+          [ "${ec:-0}" -eq 0 ] || [ "${ec:-0}" -eq 5 ]

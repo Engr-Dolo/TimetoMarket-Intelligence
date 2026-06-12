@@ -1,0 +1,17 @@
+{
+  "name": "timetomarket-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered agri-trade platform and Network Intelligence Suite for Liberia",
+  "workspaces": [
+    "timetomarket/*"
+  ],
+  "scripts": {
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0"
+  }
+}

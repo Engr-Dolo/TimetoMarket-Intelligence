@@ -1,0 +1,21 @@
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+exclude = ["node_modules", ".git", "dist", "build"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+# E501 (line too long) is enforced by black, not ruff
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "data-pipeline",
+    "timetomarket/ai-listing-engine",
+    "network-intelligence",
+]
+addopts = "-q"

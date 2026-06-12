@@ -1,0 +1,43 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Python — black defaults
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 88
+
+# JavaScript / Node.js — prettier defaults
+[*.{js,jsx,cjs,mjs}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# TypeScript (dashboards)
+[*.{ts,tsx}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown: allow long lines for readability
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Makefile requires hard tabs
+[Makefile]
+indent_style = tab
+indent_size = 4
