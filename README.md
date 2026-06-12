@@ -115,4 +115,4 @@ All Network Intelligence Suite modules operate on **anonymized, aggregated** net
 
 **Philip J. Dolo**
 Final-year B.Tech CSE student, AI & Software Development
-[GitHub](https://github.com/Engr-Dolo) · Built for Orange Summer Challenge 2026 — Liberia
+[GitHub](https://github.com/Engr-Dolo)
