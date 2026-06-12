@@ -1,6 +1,6 @@
 # TimetoMarket Intelligence
 
-**An AI-powered agri-trade platform and network intelligence suite for Liberia — built for Orange Summer Challenge 2026.**
+**An AI-powered agri-trade platform and network intelligence suite.**
 
 > Status: Design & early development stage. Architecture and AI pipeline outlined below.
 
